@@ -3,7 +3,6 @@ const { taskFirst, taskSecond } = formList.elements;
 const selectEl = document.querySelector("select");
 const getList = document.querySelector(".get-list");
 
-console.log(selectEl.value);
 formList.addEventListener("submit", (event) => {
   event.preventDefault();
   if (taskFirst.value === "" || taskSecond.value === "") {
@@ -23,7 +22,7 @@ formList.addEventListener("submit", (event) => {
       <div>Second task:<span class="task-value">${taskFirst.value}</span></div>
   <div>Complexity:<span class="task-value">${selectEl.value}</span></div><button>Delete</button></div></form>
       `;
-  getList.append(list);
+  getList.appendChild(list);
 
   const cardBtn = document.querySelector(".card button");
   const formTask = document.querySelector(".checkboxEl");
@@ -36,7 +35,7 @@ formList.addEventListener("submit", (event) => {
 
   formTask.addEventListener("submit", (event) => {
     event.preventDefault();
-    listTask.remove();
+    getList.removeChild(listTask);
   });
 
   formList.reset();
